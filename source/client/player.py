@@ -21,6 +21,9 @@ def get_magic(response_body):
 def is_finished(response_body):
     return 'value="Play again!"' in response_body
 
+def timel(response_body):
+    return (re.findall(r'(?<=<p>)It took you .*?(?=</p>)',response_body)[0])
+
 req = ""
 try:
     req = requests.get(dom)
@@ -33,35 +36,29 @@ if req.status_code != 200:
 finished = False
 cookies = copy.deepcopy(req.cookies)
 roundd=1
+took_time = 0
 while not finished:
     magic = get_magic(req.text)
     answer,value = find_bitcoin(magic)
+
     print("Round {}, magic code: {}\n{} {}.{}".format(roundd,magic,answer,value // 100,value % 100))
+    
     headers = {"Content-Type":"application/x-www-form-urlencoded"}
-    # cookies = copy.deepcopy(req.cookies)
-    # print(cookies)
+
     req = requests.post(url=dom,data={"answer":answer,"submit":"Submit!"},cookies=cookies,headers=headers)
-    # req = requests.post(url=dom,json="answer={}&submit=Submit!".format(answer),cookies=cookies,headers=headers)
+
     try:
         resp = isright(req.text)
     except:
         err("Wrong Answer")
+
     print(resp)
-    # cookies = req.cookies
+
     finished = is_finished(req.text)
     if not finished:
         req = requests.post(url=dom,data={"again":"Continue!","continue":"continue"},cookies=cookies,headers=headers)
-    # cookies = req.cookies
-    # print(cookies)
+    else:
+        took_time = timel(req.text)
+        print(took_time)
     
     roundd+=1
-    # print(req.text)
-    # x =input("")
-
-
-# print(req.text)
-
-
-# print(first.text)
-
-# print(find_bitcoin("1111"))
