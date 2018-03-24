@@ -58,7 +58,10 @@ while not finished:
     if not finished:
         req = requests.post(url=dom,data={"again":"Continue!","continue":"continue"},cookies=cookies,headers=headers)
     else:
-        took_time = timel(req.text)
-        print(took_time)
+        try:
+            took_time = timel(req.text)
+            print(took_time)
+        except:
+            pass
     
     roundd+=1

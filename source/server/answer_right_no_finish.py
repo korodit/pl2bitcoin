@@ -103,7 +103,7 @@ input.wide {{
 <p class="right">Right!  :-)</p>
 <p>You just gave me a bitcoin worth {} euros. Thank you!</p>
 
-<form action="/pl2/2017b/exercises/gimmeabitcoin.php" id="r" name="r" method="post">
+<form action="/" id="r" name="r" method="post">
   <input id="continue" name="continue" value="continue" type="hidden">
   <input name="again" id="again" value="Continue!" type="submit">
   </form>

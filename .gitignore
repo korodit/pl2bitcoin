@@ -99,3 +99,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# flask server venv
+source/server/server_venv/

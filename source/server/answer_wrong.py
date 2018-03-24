@@ -1,5 +1,5 @@
-# owed 100.99 magic abcd
-def get_question_html(owed,magic):
+# owed 100.99
+def get_answer_wrong_html(owed):
   return '''
 <!DOCTYPE html PUBLIC
           "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -100,15 +100,15 @@ input.wide {{
 <p>I'd like to have 2000.00 euros, you still
   owe me {}.</p>
 
-<span class="question">The magic code is {}</span></p>
-<form action="/pl2/2017b/exercises/gimmeabitcoin.php" id="f" name="f" method="post">
-  <input type="text" class="wide" name="answer" id="answer" /><br />
-  <input type="submit" name="submit" id="submit" value="Submit!" />
-  <input type="reset" value="Reset" />
-</form>
+<p class="wrong">This is not a valid bitcoin!  :-(</p>
+<hr>
+
+<form action="/" id="r" name="r" method="post">
+  <input id="continue" name="continue" value="continue" type="hidden">
+  <input name="again" id="again" value="Continue!" type="submit">
+  </form>
 
 </body>
 </html>
-  '''.format(owed,magic)
-# how much owed,magic number
-# check action url
+  '''.format(owed)
+  # check action url

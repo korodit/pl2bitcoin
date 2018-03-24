@@ -1,5 +1,5 @@
-# owed 100.99 worth 100.99 seconds 100.999
-def get_answer_right_finish_html(owed,worth,seconds):
+# owed 100.99 magic abcd
+def get_question_html(owed,magic):
   return '''
 <!DOCTYPE html PUBLIC
           "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -100,16 +100,15 @@ input.wide {{
 <p>I'd like to have 2000.00 euros, you still
   owe me {}.</p>
 
-<p class="right">Right!  :-)</p>
-<p>You just gave me a bitcoin worth {} euros. Thank you!</p>
-<hr>
-<p>It took you {} seconds.</p>
-
-<form action="/pl2/2017b/exercises/gimmeabitcoin.php" id="r" name="r" method="post">
-  <input id="reset" name="reset" value="reset" type="hidden">
-  <input name="again" id="again" value="Play again!" type="submit">
+<span class="question">The magic code is {}</span></p>
+<form action="/" id="f" name="f" method="post">
+  <input type="text" class="wide" name="answer" id="answer" /><br />
+  <input type="submit" name="submit" id="submit" value="Submit!" />
+  <input type="reset" value="Reset" />
 </form>
 
 </body>
 </html>
-  '''.format(owed,worth,seconds)
+  '''.format(owed,magic)
+# how much owed,magic number
+# check action url

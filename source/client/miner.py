@@ -4,11 +4,8 @@ import hashlib
 # magic = int("4217"+("0"*60),16)
 # magic = "c988"
 def find_bitcoin(magic_number):
-    # magic = input()
-    # uppercutter = int("0001"+("0"*60),16)
-    # gen = secrets.SystemRandom()
+
     initial = ""
-    # rs = 0
     value = 0
     found  = False
     while not found:

@@ -1,5 +1,5 @@
-# owed 100.99
-def get_answer_wrong_html(owed):
+# owed 100.99 worth 100.99 seconds 100.999
+def get_answer_right_finish_html(owed,worth,seconds):
   return '''
 <!DOCTYPE html PUBLIC
           "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -100,15 +100,16 @@ input.wide {{
 <p>I'd like to have 2000.00 euros, you still
   owe me {}.</p>
 
-<p class="wrong">This is not a valid bitcoin!  :-(</p>
+<p class="right">Right!  :-)</p>
+<p>You just gave me a bitcoin worth {} euros. Thank you!</p>
 <hr>
+<p>It took you {} seconds.</p>
 
-<form action="/pl2/2017b/exercises/gimmeabitcoin.php" id="r" name="r" method="post">
-  <input id="continue" name="continue" value="continue" type="hidden">
-  <input name="again" id="again" value="Continue!" type="submit">
-  </form>
+<form action="/" id="r" name="r" method="post">
+  <input id="reset" name="reset" value="reset" type="hidden">
+  <input name="again" id="again" value="Play again!" type="submit">
+</form>
 
 </body>
 </html>
-  '''.format(owed)
-  # check action url
+  '''.format(owed,worth,seconds)
