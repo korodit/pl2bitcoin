@@ -103,7 +103,7 @@ input.wide {{
 <p class="right">Right!  :-)</p>
 <p>You just gave me a bitcoin worth {} euros. Thank you!</p>
 <hr>
-<p>It took you {} seconds.</p>
+<p>It took you {:.3f} seconds.</p>
 
 <form action="/" id="r" name="r" method="post">
   <input id="reset" name="reset" value="reset" type="hidden">
